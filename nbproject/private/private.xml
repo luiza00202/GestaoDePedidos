@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/view/TelaPrincipal.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/view/TelaLogin.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/model/Usuario.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/model/Cliente.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/jdbc/ModuloConexao.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/controller/UsuarioDAO.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/view/TelaUsuario.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/view/TelaPedido.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/controller/ClienteDAO.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/controller/PedidoDAO.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/view/TelaCliente.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/view/TelaMenu.java</file>
+            <file>file:/C:/Users/juran/Downloads/GestaoPedidosCleber/GestaoPedidos/src/model/Pedido.java</file>
+        </group>
+    </open-files>
+</project-private>
