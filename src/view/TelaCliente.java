@@ -534,6 +534,19 @@ public class TelaCliente extends javax.swing.JFrame {
 
     private void jTblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTblClientesMouseClicked
        jTxtNome.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 0).toString());
+       jTxtDocumento.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 1).toString());
+       String tipo = jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 2).toString();
+       if (tipo.equals("Pessoa Física")){
+           jRdBtnFisica.setSelected(true);
+       } else{
+           jRdBtnJuridica.setSelected(true);
+       }
+       
+       jTxtEmail.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 3).toString());
+       
+       jBtnAdicionar.setEnabled(false);
+       jBtnEditar.setEnabled(true);
+       jBtnExcluir.setEnabled(true);
     }//GEN-LAST:event_jTblClientesMouseClicked
 
     /**
