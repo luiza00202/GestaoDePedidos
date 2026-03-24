@@ -40,7 +40,15 @@ public class TelaCliente1 extends javax.swing.JFrame {
                 c.getNome(),
                 c.getDocumento(),
                 c.getTipoCliente(),
+                c.getTelefone(),
                 c.getEmail(),
+                c.getLogradouro(),
+                c.getNumero(), 
+                c.getComplemento(), 
+                c.getBairro(),
+                c.getCidade(),
+                c.getEstado(),
+                c.getCep(),
                 c.getDataCadastro(),});
 
         }
@@ -357,6 +365,15 @@ public class TelaCliente1 extends javax.swing.JFrame {
 
         jLabel12.setText("Nome");
 
+        jTxtNome1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTxtNome1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxtNome1KeyReleased(evt);
+            }
+        });
+
         jLabel14.setText("Documento");
 
         jLabel15.setText("Telefone");
@@ -627,39 +644,81 @@ public class TelaCliente1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jTblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTblClientesMouseClicked
+        jTpClientes.setSelectedIndex(0);
+        jTxtNome1.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 0).toString());
+        jTxtDocumento1.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 1).toString());
+        jTxtTelefone1.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 2).toString());
+        
+        
         int selectedRow = jTblClientes.getSelectedRow();
         if (selectedRow != -1){
-            jTxtNome.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 1).toString());
-            jTxtDocumento.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 2).toString());
-            String tipo = jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 3).toString();
+            jTxtNome.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 0).toString());
+            jTxtDocumento.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 1).toString());
+            String tipo = jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 2).toString();
             if (tipo.equals("Pessoa Física")){
                 jRdBtnFisica.setSelected(true);
             } else{
                 jRdBtnJuridica.setSelected(true);
             }
 
-            jTxtTelefone.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 4).toString());
-            jTxtEmail.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 5).toString());
-            jTxtEndereco.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 6).toString());
-            jTxtNumero.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 7).toString());
-            jTxtComplemento.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 8).toString());
-            jTxtBairro.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 9).toString());
-            jTxtCidade.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 10).toString());
-            jCbxUf.setSelectedItem(String.valueOf(jTblClientes.getValueAt(selectedRow, 11)));
-            jTxtCep.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 12).toString());
-            jTxtObservacoes.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 13).toString());
+            jTxtTelefone.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 3).toString());
+            jTxtEmail.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 4).toString());
+            jTxtEndereco.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 5).toString());
+            jTxtNumero.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 6).toString());
+            jTxtComplemento.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 7).toString());
+            jTxtBairro.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 8).toString());
+            jTxtCidade.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 9).toString());
+            jCbxUf.setSelectedItem(String.valueOf(jTblClientes.getValueAt(selectedRow, 10)));
+            jTxtCep.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 11).toString());
+            jTxtObservacoes.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 12).toString());
 
 
 
             jBtnAdicionar.setEnabled(false);
             jBtnEditar.setEnabled(true);
             jBtnExcluir.setEnabled(true);
+            
         }
     }//GEN-LAST:event_jTblClientesMouseClicked
 
     private void jTpClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTpClientesMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTpClientesMouseClicked
+
+    private void jTxtNome1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtNome1KeyPressed
+       
+    }//GEN-LAST:event_jTxtNome1KeyPressed
+
+    private void jTxtNome1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtNome1KeyReleased
+    String nome = "%"+jTxtNome1.getText().trim() + "%";
+       
+       ClienteDAO dao = new ClienteDAO();
+       List<Cliente> lista = dao.listarClienteNome(nome);
+        System.out.println();
+       
+        DefaultTableModel dados = (DefaultTableModel)jTblClientes.getModel();
+        dados.setRowCount(0);
+        
+        for (Cliente c : lista){
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getDocumento(),
+                c.getTipoCliente(),
+                c.getTelefone(),
+                c.getEmail(),
+                c.getLogradouro(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getEstado(),
+                c.getCep(),
+                c.getObservacoes(),
+                
+            });
+           }       
+    }//GEN-LAST:event_jTxtNome1KeyReleased
 
     /**
      * @param args the command line arguments
